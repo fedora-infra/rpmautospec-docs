@@ -35,25 +35,16 @@
 <h1>Installing <cite>rpmautospec</cite><a class="headerlink" href="#installing-rpmautospec" title="Permalink to this heading">¶</a></h1>
 <p><cite>rpmautospec</cite> consists of these components:</p>
 <ul class="simple">
-<li><p>a Python library (which includes a small CLI tool)</p></li>
-<li><p>a plugin for Koji builders</p></li>
+<li><p>This Python package which implements the bulk of the functionality and includes a CLI tool.</p></li>
+<li><p>The [<cite>rpmautospec-core</cite>](<a class="reference external" href="https://github.com/fedora-infra/rpmautospec-core">https://github.com/fedora-infra/rpmautospec-core</a>) Python package which
+implements only very basic functionality to detect if an RPM spec file uses rpmautospec or not.</p></li>
+<li><p>The [<cite>rpmautospec-koji</cite>](<a class="reference external" href="https://github.com/fedora-infra/rpmautospec">https://github.com/fedora-infra/rpmautospec</a>-koji`) Python packages which
+implements a plugin to preprocess RPM spec files on Koji builder nodes.</p></li>
 </ul>
-<p>Each needs to be correctly installed and configured for <cite>rpmautospec</cite> to
-work properly.</p>
 <section id="installing-the-python-library">
 <h2>Installing the Python Library<a class="headerlink" href="#installing-the-python-library" title="Permalink to this heading">¶</a></h2>
-<p>The Python library is handled via a traditional <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file. It can
-therefore be installed simply by doing:</p>
-<p><code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>.</p>
-</section>
-<section id="installing-the-koji-builders-plugin">
-<h2>Installing the Koji Builders Plugin<a class="headerlink" href="#installing-the-koji-builders-plugin" title="Permalink to this heading">¶</a></h2>
-<p>The Koji plugin <code class="docutils literal notranslate"><span class="pre">rpmautospec_builder</span></code> is meant to be installed on all the
-Koji builders running the <code class="docutils literal notranslate"><span class="pre">buildSRPMFromSCM</span></code> task in:
-<code class="docutils literal notranslate"><span class="pre">/usr/lib/koji-builder-plugins/</span></code>.</p>
-<p>The plugin then can be enabled by adding: <code class="docutils literal notranslate"><span class="pre">rpmautospec_builder</span></code> in the line
-<code class="docutils literal notranslate"><span class="pre">plugins</span></code> in the <code class="docutils literal notranslate"><span class="pre">/etc/kojid/kojid.conf</span></code> configuration file for the Koji
-builders.</p>
+<p>This Python package is installed using the <cite>poetry</cite> tool. Install a recent version of it and run
+<cite>poetry install</cite> to install it and the command line tool.</p>
 </section>
 </section>
 
@@ -77,14 +68,12 @@ builders.</p>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="principle.html">The Principle of automatic releases and changelog in <cite>rpmautospec</cite></a></li>
-<li class="toctree-l1"><a class="reference internal" href="opting-in.html">Opting into using <cite>rpmautospec</cite></a></li>
-<li class="toctree-l1"><a class="reference internal" href="autorelease.html">Using the <code class="docutils literal notranslate"><span class="pre">%autorelease</span></code> Macro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autorelease.html#traditional-versioning-with-part-of-the-upstream-version-information-in-the-release-field">Traditional versioning with part of the upstream version information in the release field</a></li>
-<li class="toctree-l1"><a class="reference internal" href="autochangelog.html">Using the <code class="docutils literal notranslate"><span class="pre">%autochangelog</span></code> Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="opting-in.html">Using <cite>rpmautospec</cite></a></li>
+<li class="toctree-l1"><a class="reference internal" href="autorelease.html">The <code class="docutils literal notranslate"><span class="pre">%autorelease</span></code> Macro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="autochangelog.html">The <code class="docutils literal notranslate"><span class="pre">%autochangelog</span></code> Macro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="peculiarities.html">Peculiarities of <cite>rpmautospec</cite></a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Installing <cite>rpmautospec</cite></a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installing-the-python-library">Installing the Python Library</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installing-the-koji-builders-plugin">Installing the Koji Builders Plugin</a></li>
 </ul>
 </li>
 </ul>
@@ -123,8 +112,8 @@ builders.</p>
       &copy;2020–2021, Fedora Infrastructure.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.2.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/install.rst.txt"
